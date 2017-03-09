@@ -1,0 +1,7 @@
+.navbar {
+    position:absolute;
+    z-index: 999999;
+    top: 25%;
+    opacity: 0.4;
+}
+

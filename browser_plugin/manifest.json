@@ -1,0 +1,158 @@
+{
+  "manifest_version": 2,
+  "name": "鳄鱼兄弟视频插件",
+  "description":"鳄鱼兄弟视频插件，是一款免费观看爱奇艺，优酷，乐视，腾讯视频，芒果TV,搜狐视频等网站的所有电影，电视剧的插件",
+  "version": "1.0",
+  "background": {
+    "scripts": [
+      "libs/jquery/jquery.min.js",
+      "js/UnicodeAnsi.js",
+      "js/base64.js",
+      "js/background.js"
+    ]
+  },
+  "browser_action": {
+    "default_icon": "images/icon128.png",
+    "default_title": "鳄鱼兄弟视频插件"
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "homepage_url": "http://media.cloudgator.cn",
+  "update_url": "http://upext.chrome.360.cn/intf.php?method=ExtUpdate.query",
+  "permissions": [
+    "*://*/*",
+    "webRequest",
+    "webRequestBlocking",
+    "debugger",
+    "storage",
+    "downloads"
+  ],
+  "web_accessible_resources": [
+    "images/*.png",
+    "images/svg/*.svg",
+    "data/*.*"
+  ],
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "css":["css/angular-material.css","css/bootstrap.min.css"],
+      "js": [
+        "js/UnicodeAnsi.js",
+        "js/base64.js",
+        "libs/jquery/jquery.min.js",
+        "libs/angular/angular.js",
+        "libs/angular/angular-animate.js",
+        "libs/angular/angular-aria.js",
+        "libs/angular/angular-material.js",
+        "libs/angular/angular-resource.js"
+      ],
+      "matches": [ "*://*.iqiyi.com/*", "*://*.youku.com/*", "*://*.le.com/*", "*://*.mgtv.com/*", "*://*.qq.com/*", "*://*.sohu.com/*" ],
+      "run_at": "document_start"
+    },
+    {
+      "all_frames": true,
+      "css": [
+        "css/style.css",
+        "css/angular-material.css",
+        "css/bootstrap.min.css"
+      ],
+      "js": [
+        "js/app.js",
+        "js/services.js",
+        "js/controller.js",
+        "js/sites/iqiyi.js"
+      ],
+      "matches": [
+        "http://*.iqiyi.com/v_*",
+        "http://vip.iqiyi.com/*",
+        "http://www.iqiyi.com/dianying/*"
+      ],
+      "run_at": "document_end"
+    },
+    {
+      "all_frames": true,
+      "css": [
+        "css/style.css",
+        "css/angular-material.css",
+        "css/bootstrap.min.css"
+      ],
+      "js": [
+        "js/app.js",
+        "js/services.js",
+        "js/controller.js",
+        "js/sites/youku.js"
+      ],
+      "matches": [
+        "http://v.youku.com/*", "https://v.youku.com/*", "http://movie.youku.com/*", "https://movie.youku.com/*"
+      ],
+      "run_at": "document_end"
+    },
+    {
+      "all_frames": true,
+      "css": [
+        "css/style.css"
+      ],
+      "js": [
+        "js/app.js",
+        "js/services.js",
+        "js/controller.js",
+        "js/sites/le.js"
+      ],
+      "matches": [
+        "http://*.le.com/ptv/*", "https://*.le.com/ptv/*"
+      ],
+      "run_at": "document_end"
+    },
+    {
+      "all_frames": true,
+      "css": [
+        "css/style.css"
+      ],
+      "js": [
+        "js/app.js",
+        "js/services.js",
+        "js/controller.js",
+        "js/sites/mgtv.js"
+      ],
+      "matches": [
+        "http://*.mgtv.com/v/*", "http://*.mgtv.com/b/*"
+      ],
+      "run_at": "document_end"
+    },
+    {
+      "all_frames": true,
+      "css": [
+        "css/style.css"
+      ],
+      "js": [
+        "js/app.js",
+        "js/services.js",
+        "js/controller.js",
+        "js/sites/qq.js"
+      ],
+      "matches": [
+        "http://v.qq.com/x/*", "https://v.qq.com/x/*"
+      ],
+      "run_at": "document_end"
+    },
+    {
+      "all_frames": true,
+      "css": [
+        "css/style.css"
+      ],
+      "js": [
+        "js/app.js",
+        "js/services.js",
+        "js/controller.js",
+        "js/sites/sohu.js"
+      ],
+      "matches": [
+        "http://tv.sohu.com/2*", "http://film.sohu.com/*"
+      ],
+      "run_at": "document_end"
+    }
+  ]
+}
